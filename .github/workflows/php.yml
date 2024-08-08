@@ -16,8 +16,6 @@ jobs:
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
-      with:
-        php-version: 8.2
 
     - name: Cache Composer packages
       id: composer-cache
@@ -31,15 +29,9 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-      with:
-        php-version: 8.2
 
     - name: Lint
       run: composer run-script cs
-      with:
-        php-version: 8.2
 
     - name: Run test suite
       run: composer run-script test
-      with:
-        php-version: 8.2
