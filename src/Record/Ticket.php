@@ -56,7 +56,7 @@ class Ticket extends Record implements RecordInterface
         $this->fine_amount = (float) str_replace('$', '', $fine_amount);
 
         // Set ID based on values which must be unique across tickets
-        $this->ticket_id = $this->calculateId();
+        $this->ticket_id = $this->ticketId = $this->calculateId();
     }
 
 
@@ -67,6 +67,8 @@ class Ticket extends Record implements RecordInterface
             $message = "TicketAlreadyExistsException: Ticket with ID $this->ticket_id already exists in the database.";
             throw new RecordAlreadyExistsException($message);
         }
+
+        parent::saveToDb($storage, [$this->ticketId, $this->recordType, $this->ticket_issue_date]);
 
         return $storage->database->insert(
             'tickets',
