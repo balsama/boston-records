@@ -1,0 +1,4 @@
+/vendor
+/data/
+/scripts/myenv/
+.phpunit.result.cache
