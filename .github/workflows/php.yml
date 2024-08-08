@@ -30,10 +30,7 @@ jobs:
       run: composer install --prefer-dist --no-progress
 
     - name: Lint
-      run: composer run-script lint
-
-    - name: Setup
-      run: cp config/example.config.yml config/config.yml
+      run: composer run-script cs
 
     - name: Run test suite
       run: composer run-script test
