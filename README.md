@@ -9,7 +9,7 @@ See `Meedo::setDatabase` for database structure. Currently stores:
 * Log
 
 ## Usage
-```injectablephp
+```php
 // Create an Importer and pass the directory that holds the data. The data can be spread across multiple files in the
 // directory.
 $importer = new CsvImporter(__DIR__ . '/../data/citations/2024/');
