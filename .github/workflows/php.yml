@@ -30,16 +30,16 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
       with:
         php-version: 8.2
-      run: composer install --prefer-dist --no-progress
 
     - name: Lint
+      run: composer run-script cs
       with:
         php-version: 8.2
-      run: composer run-script cs
 
     - name: Run test suite
+      run: composer run-script test
       with:
         php-version: 8.2
-      run: composer run-script test
