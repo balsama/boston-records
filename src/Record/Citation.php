@@ -90,6 +90,8 @@ class Citation extends Record implements RecordInterface
             throw new RecordAlreadyExistsException($message);
         }
 
+        parent::saveToDb($storage, [$this->ticketId, $this->recordType, $this->event_date]);
+
         return $storage->database->insert(
             'citations',
             [

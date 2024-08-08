@@ -13,9 +13,19 @@ class Record
     public string $recordType;
     public ?string $ticketId = null;
 
-    public function saveToDb(Storage $storage, array $valueMap): ?PDOStatement
+    public function saveToDb(Storage $storage, array $recordValues): ?PDOStatement
     {
-        throw new Exception(self::EXCEPTION_MESSAGE);
+        if (count($recordValues) !== 3) {
+            throw new Exception("Expected 3 values (id, type, & issue_date)");
+        }
+        return $storage->database->insert(
+            'records',
+            [
+                'id' => $recordValues[0],
+                'type' => $recordValues[1],
+                'issue_date' => $recordValues[2],
+            ]
+        );
     }
 
     public function calculateId(): string

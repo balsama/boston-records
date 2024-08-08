@@ -15,6 +15,12 @@ class Storage
             'database' => $sqliteDb,
         ]);
 
+        $this->database->create('records', [
+            'id' => ['TEXT'],
+            'type' => ['TEXT'],
+            'issue_date' => ['TEXT'],
+        ]);
+
         $this->database->create('tickets', [
             'ticket_id' => ['TEXT'],
             'ticket_number' => ['TEXT'],
