@@ -13,7 +13,7 @@ class CsvImporterTest extends TestCase
 {
     public function testLoadFile(): void
     {
-        $importer = new CsvImporter();
+        $importer = new CsvImporter(__DIR__ . '/../../fixtures/sample_csvs/tickets/');
         $file = __DIR__ . '/../../fixtures/sample_csvs/tickets/sampleCsv1';
         $valueMap = Mapper::TICKET_2023;
         $importer->entityType = Ticket::class;
